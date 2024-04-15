@@ -1,0 +1,51 @@
+<!-- 
+Author : Susan Wagle C0913636
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrafficTutor - Register</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="img-container">
+        <img src="../static/media/register.png" alt="login" />
+      </div>
+      <div class="form-container">
+        <h2 class="logo">TrafficTutor</h2>
+        <form method="POST">
+          {%csrf_token%}
+          <div>
+            <h2 class="login-heading">Sign Up to TrafficTutor</h2>
+            <p class="login-desc">
+              Unlock a world of learning and challenge by registering for our
+              quiz app
+            </p>
+            <div class="input-container">
+              <p>Username :</p>
+              {{form.username}}
+            </div>
+            <div class="input-container">
+              <p>Email :</p>
+              {{form.email}}
+            </div>
+            <div class="input-container">
+              <p>Password :</p>
+              {{form.password}}
+            </div>
+            {% for message in messages%}
+            <div class="error-message">{{message}}</div>
+            {%endfor %}
+            <div>
+              <button class="btn-register" type="submit">Register</button>
+            </div>
+          </div>
+        </form>
+        <p>Already have an account? <a href="/login">Log in</a></p>
+      </div>
+    </div>
+  </body>
+</html>

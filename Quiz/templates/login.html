@@ -1,0 +1,66 @@
+<!-- 
+Author : Susan Wagle C0913636
+-->
+
+<!-- This is the login page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrafficTutor - Login</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="img-container">
+        <img src="../static/media/img.png" alt="login" />
+      </div>
+      <div class="form-container">
+        <h2 class="logo">TrafficTutor</h2>
+        <form method="POST" action="/login">
+          {%csrf_token%}
+          <!-- for next url -->
+          <input type="hidden" name="next" value="{{ request.GET.next }}" />
+          <div>
+            <h2 class="login-heading">Login to TrafficTutor</h2>
+            <p class="login-desc">
+              Engage your intellect and have fun with our interactive quiz app
+            </p>
+            <div class="input-container">
+              <p>Username :</p>
+              {{form.username}}
+            </div>
+            <div class="input-container">
+              <p>Password :</p>
+              {{form.password}}
+            </div>
+            {% for message in messages%}
+            <div class="error-message">{{message}}</div>
+            {%endfor %}
+            <div>
+              <button class="btn-login" type="submit">Login</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Login with google and facebook button -->
+        <button class="social-login">
+          <img
+            class="social-icon"
+            src="../static/media/google.png"
+            alt="Google"
+          />&nbsp;&nbsp;&nbsp;Login with Google
+        </button>
+        <button class="social-login">
+          <img
+            class="social-icon"
+            src="../static/media/fb.png"
+            alt="Fb"
+          />&nbsp;&nbsp;Login with Facebook
+        </button>
+        <p>New User? <a href="/register">Register here</a></p>
+      </div>
+    </div>
+  </body>
+</html>

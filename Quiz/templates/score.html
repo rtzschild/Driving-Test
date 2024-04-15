@@ -1,0 +1,84 @@
+<!-- Group Members:
+        Ajay Shrestha
+        Gaurab Pokhrel
+        Nirajan Karki
+        Sakar Thapa-->
+
+{% extends 'base.html' %} {% load static %}
+<!--  -->
+
+{% block css_files %}
+<link rel="stylesheet" href="../static/quiz.css" />
+{%endblock %}
+
+<!-- Title -->
+{% block page_title %} TrafficTutor - All Results {% endblock %}
+
+<!-- Main content -->
+
+{% block content %} {% if quiz_results|length >= 1 %}
+<div class="all-results-container">
+  <h1>All Quiz Results</h1>
+  <br />
+
+  <div class="card-result">
+    <!-- Loop between the scores to display highest, lowest and average score based on the category -->
+
+    <div class="result-container">
+      <h3>Highest Score:</h3>
+      {% for score in scores %}
+      <div class="card-content">
+        <strong>{{score.category}}</strong>
+        <p>{{score.highest}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="result-container">
+      <h3>Average Score:</h3>
+      {% for score in scores %}
+      <div class="card-content">
+        <strong>{{score.category}}</strong>
+        <p>{{score.average}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="result-container">
+      <h3>Lowest Score:</h3>
+      {% for score in scores %}
+      <div class="card-content">
+        <strong>{{score.category}}</strong>
+        <p>{{score.lowest}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Display all previous results in a table -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Attempts</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop between the result and display each result in each row -->
+
+      {% for quiz_result in quiz_results %}
+      <!--  -->
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{quiz_result.category.category_name}}</td>
+        <td>{{ quiz_result.datetime }}</td>
+        <td>{{ quiz_result.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="no_result_illustrator"></div>
+
+{% endif %} {% endblock %}

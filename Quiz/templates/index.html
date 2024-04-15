@@ -1,0 +1,50 @@
+<!-- 
+Author : Susan Wagle C0913636
+-->
+
+<!-- This is the homepage once the user logs in -->
+{% extends 'base.html' %} {% load static %}
+<!--  -->
+
+<!-- Importing css file -->
+{% block css_files %}
+<link rel="stylesheet" href="../static/styles.css" />
+{%endblock %}
+
+<!--  -->
+<!-- Title -->
+{% block page_title %} TrafficTutor - Home {% endblock %}
+
+<!--  -->
+<!-- Main body/content of the page -->
+{% block content %}
+<div>
+  <div class="image-container">
+    <div class="header">
+      <h1 class="main-header">Get your license <br />this season, 2023</h1>
+      <h3 class="sub-header">Feel free to practice for your driving test</h3>
+    </div>
+    <div class="illustrator-left"></div>
+    <div class="illustrator-right"></div>
+    <div class="form-container"></div>
+    <div class="container-wrapper">
+      <div class="form-wrapper">
+        <!-- Dropdown that lets users select between the categories -->
+        <form>
+          <label for="category" class="category">Category</label>
+          <select name="category" class="category-form">
+            <option value="Choose">Choose</option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}">
+              {{category.category_name}}
+            </option>
+            {% endfor %}
+          </select>
+          <button class="button">Submit</button>
+        </form>
+        <div class="button-class"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

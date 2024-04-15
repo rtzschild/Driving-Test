@@ -1,0 +1,201 @@
+/*
+Author : Susan Wagle C0913636
+*/
+
+.main-container {
+  padding: 60px 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.form-group h4 {
+  margin-bottom: 20px;
+}
+
+#quizForm {
+  width: 900px;
+}
+
+.question-container {
+  margin: 8px 0;
+  padding: 10px 40px;
+  padding-bottom: 10px;
+  /* background-color: #ebedf2; */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 1000px;
+}
+
+.question {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 15px;
+}
+
+.option {
+  padding: 5px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-div {
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 15px 25px;
+  margin: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 20%;
+  border: 2px solid #04aa6d;
+  border-radius: 1000px;
+  background-color: #fff;
+  color: #04aa6d;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #04aa6d;
+  color: #fff;
+}
+
+.no_result_illustrator {
+  background: url(./media/nodata.svg) no-repeat;
+  width: 720px;
+  height: 245px;
+  z-index: -1000;
+  position: absolute;
+  left: 31%;
+  top: 3%;
+  height: 755px;
+}
+
+.card-result {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  padding: 2rem 0rem;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.result-container {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width: 12rem;
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  width: 100%;
+}
+
+.result-container h3 {
+  padding-bottom: 0.8rem;
+}
+
+/* ****************ALL QUIZ RESULTS************ */
+/* ******************************************** */
+.all-results-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.all-results-container h1 {
+  margin-top: 30px;
+}
+
+h5 {
+  display: flex;
+  font-size: 18px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+/* All results Table design */
+table,
+th,
+td {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  width: 1000px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+  font-size: 16px;
+  text-align: center;
+}
+
+table thead tr {
+  background-color: #04aa6d;
+  color: #ffffff;
+  text-align: center;
+}
+
+table th,
+table td {
+  padding: 12px 5px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* for screen less than 1350px width */
+@media only screen and (max-width: 1350px) {
+  .no_result_illustrator {
+    width: 643px;
+    left: 25%;
+  }
+}
+
+/* for screen less than 1800px width */
+@media only screen and (max-width: 1800px) {
+  .no_result_illustrator {
+    width: 671px;
+    left: 30%;
+  }
+}
+
+/* for screen between 1250px and 1450px width */
+@media only screen and (max-width: 1450px) and (min-width: 1250px) {
+  .no_result_illustrator {
+    width: 671px;
+    left: 25%;
+  }
+}
+
+/* for screen between 800px and 1200px width */
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+  .no_result_illustrator {
+    width: 671px;
+    left: 20%;
+  }
+}
+
+/* for screen between 1850px and 2600px width */
+@media only screen and (max-width: 2600px) and (min-width: 1850px) {
+  .no_result_illustrator {
+    width: 666px;
+    left: 30%;
+  }
+}

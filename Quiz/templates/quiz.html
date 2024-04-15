@@ -1,0 +1,64 @@
+<!-- 
+Author : Susan Wagle C0913636
+-->
+
+{% extends 'base.html' %} {% load static %}
+<!--  -->
+
+<!-- Import requires css file -->
+{% block css_files %}
+<link rel="stylesheet" href="../static/quiz.css" />
+{%endblock %}
+
+<!-- Title -->
+{% block page_title %} TrafficTutor - Quiz {% endblock %}
+
+<!-- Main content of the page -->
+
+{% block content %} {% if questions|length >= 1 %}
+<main class="main-container">
+  <form
+    id="quizForm"
+    method="post"
+    action="/result"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="form-group">
+      <h4>
+        Answer the questions after carefully reading them. For each question,
+        you must only choose one answer. Good luck.
+      </h4>
+      <!-- Loop between the questions and display each question along with options -->
+      {% for que in questions %}
+      <div class="question-container">
+        <h3 class="question">{{forloop.counter}}. {{que.question}}</h3>
+        <ul class="options-list">
+          <!-- Display list of options -->
+          {% for ans in que.answers %}
+          <li class="option">
+            <input
+              type="radio"
+              id="{{ans.id}}"
+              value="{{ans.id}}"
+              name="question{{que.id}}"
+              required
+            />
+            <label for="{{ans.id}}"> {{ans.answer}} </label>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="btn-div">
+      <button id="submitButton" class="submit-btn">Submit</button>
+    </div>
+  </form>
+</main>
+{% else %}
+<div class="no_result_illustrator"></div>
+{% endif %}
+<!--  -->
+
+{% endblock %}

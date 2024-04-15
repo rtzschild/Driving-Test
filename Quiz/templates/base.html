@@ -1,0 +1,106 @@
+<!--
+Author : Susan Wagle C0913636
+
+
+ This is the base HTML file -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block page_title %}Title{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static "base.css" %}" />
+
+    <!-- ION ICONS -->
+    <!-- Using ION ICONS for icons in the app -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!--  -->
+    {% block css_files %} {% endblock %}
+    <!-- Importing jquery CDN for additional functionality -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>TrafficTutor</title>
+  </head>
+  <body>
+    <!-- This is the navigation -->
+    <header>
+      <nav class="navigation">
+        <div class="nav-title">
+          <h2 class="logo-header">
+            <a href="/"> TrafficTutor </a>
+          </h2>
+        </div>
+        <div class="center-navigation">
+          <ul class="center-navigation">
+            <li class="nav-buttom"><a href="/"> Home</a></li>
+            <li class="nav-buttom">
+              <a href="/score">My Results</a>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav-links">
+          {% if user %}
+          <div class="login-div">
+            <li>
+              <a class="logout-btn" href="/logoutUser"
+                ><ion-icon
+                  class="logout-icon"
+                  name="log-out-outline"
+                ></ion-icon>
+                <p>Logout</p>
+              </a>
+            </li>
+            <li>
+              <a class="welcome-btn" href="#"
+                ><ion-icon
+                  class="user-icon"
+                  name="person-circle-outline"
+                ></ion-icon
+                ><span>Hi, {{user}}</span>
+                <ion-icon name="chevron-down-outline"></ion-icon
+              ></a>
+            </li>
+          </div>
+          {% else %}
+          <li><a href="/">Log in</a></li>
+          <li><a href="/register">Sign up</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ALl the content goes here -->
+    {% block content %} {% endblock %}
+
+    <!-- This is the footer -->
+    <footer>
+      <h2 class="footer-icons">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </h2>
+      <div class="footer-links">
+        <p>Home</p>
+        <p>About</p>
+        <p>Contact Us</p>
+      </div>
+      <div class="footer-links">
+        <p>Privacy Policy</p>
+        <p>Terms & Conditions</p>
+      </div>
+      <p class="footer-text">Copyright &copy; 2023 All rights reserved!</p>
+    </footer>
+  </body>
+</html>

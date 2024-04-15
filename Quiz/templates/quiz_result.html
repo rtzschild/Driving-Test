@@ -1,0 +1,51 @@
+<!-- 
+Author : Susan Wagle C0913636
+-->
+
+<!-- This is the page that appears after user submits the quiz answers -->
+{% extends 'base.html' %} {% load static %}
+<!--  -->
+
+{% block css_files %}
+<link rel="stylesheet" href="../static/styles.css" />
+{%endblock %}
+
+<!--  -->
+<!-- Title of the page -->
+{% block page_title %} TrafficTutor - Result {% endblock %}
+
+<!--  -->
+<!-- Main content of the page -->
+
+{% block content %}
+<div class="result-container">
+  <div class="result-img-div">
+    <img class="result-img" src="../static/media/result.png" alt="result" />
+  </div>
+  <div class="result-text">
+    <h1>Quiz Result</h1>
+    <!-- Display scores -->
+    <p class="score">Your score: {{ user_score }} out of 5</p>
+    <br />
+    <!-- Display percentage achieved -->
+    <p class="percentage">{{percentage}} %</p>
+
+    <!-- Display message based on the scores achieved -->
+    {% if user_score <= 2 %}
+    <p class="try-again-msg">Please Try Again!!</p>
+    <p class="mark-message try-again-link">
+      <a href="quiz/?category={{category_name}}">Re-attempt Quiz</a>
+    </p>
+    {% elif user_score == 3 %}
+    <p class="mark-message">Good job!</p>
+    {% elif user_score == 4 %}
+    <p class="mark-message">Excellent work!</p>
+    {% else %}
+    <p class="mark-message">You are a genius!</p>
+    {% endif %}
+    <a href="/score" class="btn-primary" style="font-size: 20px"
+      >View all results</a
+    >
+  </div>
+</div>
+{% endblock %}
